@@ -1,0 +1,11 @@
+import xai.data
+df = xai.data.load_census()
+df.head()
+ims = xai.imbalance_plot(df, "gender")
+im = xai.imbalance_plot(df, "gender", "loan")
+print(ims)
+print(im)
+groups = xai.group_by_columns(df, ["gender", "loan"])
+for group, group_df in groups:    
+    print(group) 
+    print(group_df["loan"].head(), "\n")
